@@ -1,0 +1,9 @@
+<h2>Sign Up!</h2>
+<p>New User</p>
+<form action=" <%= users_url %> " method="POST">
+  <label id="username" for="username">Username</label>
+  <input type="text" name="user[username]" placeholder="Username">
+  <label for="password">Password</label>
+  <input id="password" type="password" name="user[password]">
+  <input type="submit" value="Sign Up">
+</form>
