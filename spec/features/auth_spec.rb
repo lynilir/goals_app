@@ -13,8 +13,7 @@ feature "the signup process" do
     before(:each) do
       visit new_user_url
       fill_in 'username', :with => "User1"
-      fill_in 'password', :wtih => "password"
-      save_and_open_page
+      fill_in 'password', :with => "password"
       click_on 'Sign Up'
     end
 
@@ -28,16 +27,20 @@ end
 
 feature "logging in" do
 
+
   feature "sign in a user" do
+    let(:user) { User.create(username: "user1", password: "password") }
     before(:each) do
-      visit new_session_url
-      fill_in 'username', :with => "User1"
-      fill_in 'password', :wtih => "password"
+      user
+      visit new_sessions_url
+      fill_in 'username', :with => "user1"
+      fill_in 'password', :with => "password"
       click_on 'Sign In'
     end
 
     scenario "shows username on the homepage after login" do
-        expect(page).to have_content "User1"
+      visit new_sessions_url
+      expect(page).to have_content "user1"
     end
 
   end

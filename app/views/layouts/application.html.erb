@@ -10,11 +10,11 @@
 
   <body>
     <% if current_user %>
-      <%= current_user.username %>
+      <%=current_user.username %>
       <%= button_to "Sign Out", sessions_url, method: :delete %>
     <% else %>
-      <%= link_to "Sign In", new_sessions_url, method: :get %>
-      <%= link_to "Sign Up", new_user_url, method: :get %>
+      <%=link_to "Log In", new_sessions_url, method: :get %>
+      <%= link_to "Sign Up!", new_user_url, method: :get %>
     <% end %>
     <%= yield %>
   </body>
